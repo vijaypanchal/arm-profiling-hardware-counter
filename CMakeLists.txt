@@ -2,4 +2,4 @@ project(Test)
 
 set ( CMAKE_C_FLAGS "--save-temps")
 
-add_executable(${PROJECT_NAME} main.c)
+add_executable(${PROJECT_NAME} main.c arm_clock.h)
