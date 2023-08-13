@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
-
+#define NSEC_PER_SEC   1000000000L
 static inline __uint64_t arch_timer_get_cntkctl(void)
 {
     __uint64_t cntkctl;
@@ -27,7 +27,7 @@ int main()
 
     printf("Aarch64 %ld cycles\n", (te - ts));
     printf(" Frequency = %ld\n", freq);
-    printf("Time taken : %f \n",(float)(te-ts)/(float)freq);
-
+    printf("Time taken : %f Sec \n",(float)(te-ts)/(float)freq);
+    printf("Time taken : %f ns \n",(float)(te-ts)*(float)NSEC_PER_SEC/(float)freq);
     return 0;
 }
